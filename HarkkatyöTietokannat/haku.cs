@@ -6,14 +6,23 @@ namespace HarkkatyöTietokannat
 {
     class haku
     {
-        public static void etsi()
+        public static string etsi(string ryhma)
         {
             String aika = DateTime.Now.ToString("yyyy-MM-dd'T'HH:mm");
 
+            String alkuosa = "{ 'studentGroup': ['" + ryhma;
+            String valiosa = "'],'startDate':'" + aika;
+            String loppuosa = "'}";
 
-            string postData = ("{ 'studentGroup': ['12I224'],'startDate':'2015-04-09T12:00'}");
+            String lopullinen = alkuosa + valiosa + loppuosa;
+
+            string postData = lopullinen;
+            // string postData = ("{ 'studentGroup': ['12I224'],'startDate':'2015-04-09T12:00'}");
+
+
+            String apiKey = "BekzCh4TblzdA9oe962E";
             // Create a request using a URL that can receive a post. 
-            WebRequest request = WebRequest.Create("https://opendata.tamk.fi/r1/reservation/search?apiKey=BekzCh4TblzdA9oe962E");
+            WebRequest request = WebRequest.Create("https://opendata.tamk.fi/r1/reservation/search?apiKey="+apiKey);
             // Set the Method property of the request to POST.
             request.Method = "POST";
             // Create POST data and convert it to a byte array.
@@ -45,6 +54,8 @@ namespace HarkkatyöTietokannat
             reader.Close();
             dataStream.Close();
             response.Close();
+
+            return responseFromServer;
         }
     }
 }

@@ -31,7 +31,10 @@ namespace HarkkatyöTietokannat
 
         private void button1_Click(object sender, EventArgs e)
         {
-            haku.etsi();
+            String ryhma = textBox1.Text;
+            haku.etsi(ryhma);
+
+
         }
 
     }

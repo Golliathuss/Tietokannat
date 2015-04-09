@@ -6,6 +6,7 @@ namespace HarkkatyöTietokannat
 {
     class haku
     {
+        static string apiKey = "BekzCh4TblzdA9oe962E";
         public static string etsi(string ryhma)
         {
             String aika = DateTime.Now.ToString("yyyy-MM-dd'T'HH:mm");
@@ -20,7 +21,6 @@ namespace HarkkatyöTietokannat
             // string postData = ("{ 'studentGroup': ['12I224'],'startDate':'2015-04-09T12:00'}");
 
 
-            String apiKey = "BekzCh4TblzdA9oe962E";
             // Create a request using a URL that can receive a post. 
             WebRequest request = WebRequest.Create("https://opendata.tamk.fi/r1/reservation/search?apiKey="+apiKey);
             // Set the Method property of the request to POST.

@@ -31,10 +31,15 @@ namespace HarkkatyöTietokannat
 
         private void button1_Click(object sender, EventArgs e)
         {
+            String[] varaus;
+            varaus = new String[3];
+
             String ryhma = textBox1.Text;
-            haku.etsi(ryhma);
+            varaus = Parser.parseri(haku.etsi(ryhma));
 
-
+            label2.Text = varaus[0];
+            label3.Text = varaus[1];
+            label4.Text = varaus[2];
         }
 
     }

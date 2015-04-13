@@ -15,25 +15,32 @@ namespace HarkkatyöTietokannat
         public static string[] parseri(string data)
         {
             string[] varaus;
-            varaus = new string[3];
-
+            varaus = new string[6];
+            int k = 0;
             JObject o = JObject.Parse(data);
-            for (int i = 0; i < 3; i++)
+            for (int j = 0; j < 2; j++)
             {
-                switch(i)
+                for (int i = 0; i < 3; i++)
                 {
-                    case 0:
-                        varaus[0] = ("Name: " + o["reservations"][0]["subject"]);
-                        break;
-                    case 1:
-                        varaus[1] = ("Startdate: " + o["reservations"][0]["startDate"]);
-                        break;
-                    case 2:
-                        varaus[2] = ("Enddate: " + o["reservations"][0]["endDate"]);
-                        break;
+                    switch (i)
+                    {
+                        case 0:
+                            varaus[k] = ("Name: " + o["reservations"][j]["subject"]);
+                            k++;
+                            break;
+                        case 1:
+                            varaus[k] = ("Startdate: " + o["reservations"][j]["startDate"]);
+                            k++;
+                            break;
+                        case 2:
+                            varaus[k] = ("Enddate: " + o["reservations"][j]["endDate"]);
+                            k++;
+                            break;
+
+                    }
+                   
                 }
             }
-
             return varaus;
         }
 

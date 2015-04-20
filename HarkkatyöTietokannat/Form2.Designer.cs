@@ -28,6 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
+            Calendar.DrawTool drawTool1 = new Calendar.DrawTool();
+            this.dayView1 = new Calendar.DayView();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.label6 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
@@ -35,13 +37,31 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.groupBox1.SuspendLayout();
-            this.groupBox2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
+            // 
+            // dayView1
+            // 
+            drawTool1.DayView = this.dayView1;
+            this.dayView1.ActiveTool = drawTool1;
+            this.dayView1.AllowScroll = false;
+            this.dayView1.AmPmDisplay = false;
+            this.dayView1.AppHeightMode = Calendar.DayView.AppHeightDrawMode.TrueHeightAll;
+            this.dayView1.DaysToShow = 5;
+            this.dayView1.DrawAllAppBorder = false;
+            this.dayView1.Font = new System.Drawing.Font("Segoe UI", 8F);
+            this.dayView1.Location = new System.Drawing.Point(-1, -1);
+            this.dayView1.MinHalfHourApp = true;
+            this.dayView1.Name = "dayView1";
+            this.dayView1.SelectionEnd = new System.DateTime(((long)(0)));
+            this.dayView1.SelectionStart = new System.DateTime(((long)(0)));
+            this.dayView1.Size = new System.Drawing.Size(890, 625);
+            this.dayView1.SlotsPerHour = 2;
+            this.dayView1.StartDate = new System.DateTime(2015, 4, 20, 0, 0, 0, 0);
+            this.dayView1.StartHour = 7;
+            this.dayView1.TabIndex = 1;
+            this.dayView1.Text = "dayView1";
+            this.dayView1.ResolveAppointments += new Calendar.ResolveAppointmentsEventHandler(this.dayView1_ResolveAppointments);
             // 
             // groupBox1
             // 
@@ -113,47 +133,17 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "label1";
             // 
-            // groupBox2
-            // 
-            this.groupBox2.Controls.Add(this.dataGridView1);
-            this.groupBox2.Location = new System.Drawing.Point(356, 40);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(241, 384);
-            this.groupBox2.TabIndex = 1;
-            this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "groupBox2";
-            // 
-            // groupBox3
-            // 
-            this.groupBox3.Location = new System.Drawing.Point(626, 40);
-            this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(277, 384);
-            this.groupBox3.TabIndex = 2;
-            this.groupBox3.TabStop = false;
-            this.groupBox3.Text = "groupBox3";
-            // 
-            // dataGridView1
-            // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(0, 44);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(208, 205);
-            this.dataGridView1.TabIndex = 0;
-            // 
             // Form2
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1153, 547);
-            this.Controls.Add(this.groupBox3);
-            this.Controls.Add(this.groupBox2);
+            this.ClientSize = new System.Drawing.Size(1153, 622);
+            this.Controls.Add(this.dayView1);
             this.Controls.Add(this.groupBox1);
             this.Name = "Form2";
             this.Text = "Form2";
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
-            this.groupBox2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -161,14 +151,12 @@
         #endregion
 
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private Calendar.DayView dayView1;
     }
 }

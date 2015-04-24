@@ -14,11 +14,15 @@ namespace HarkkatyöTietokannat
     {
         public static string[] parseri(string data)
         {
+            String testi = "subject";
+            int count = (data.Length - data.Replace(testi, "").Length) / testi.Length;
+            
             string[] varaus;
-            varaus = new string[6];
+            varaus = new string[count*3];
             int k = 0;
             JObject o = JObject.Parse(data);
-            for (int j = 0; j < 2; j++)
+
+            for (int j = 0; j < count; j++)
             {
                 for (int i = 0; i < 3; i++)
                 {

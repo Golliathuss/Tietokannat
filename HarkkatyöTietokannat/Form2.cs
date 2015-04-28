@@ -17,9 +17,14 @@ namespace HarkkatyöTietokannat
 
         List<Appointment> m_Appointments;
         int vertaus = 0;
+
         public Form2(string ryhma)
         {
             InitializeComponent();
+
+            DateTime input = DateTime.Now;
+            int delta = DayOfWeek.Monday - input.DayOfWeek;
+            dayView1.StartDate = input.AddDays(delta);
 
             String[] varaus;
             varaus = new String[6];

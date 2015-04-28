@@ -9,7 +9,7 @@ namespace HarkkatyöTietokannat
         static string apiKey = "BekzCh4TblzdA9oe962E";
         public static string etsi(string ryhma)
         {
-            String aika = DateTime.Now.ToString("yyyy-MM-dd'T'HH:mm");
+            String aika = DateTime.Now.AddDays(-7).ToString("yyyy-MM-dd'T'HH:mm");
 
             String alkuosa = "{ 'studentGroup': ['" + ryhma;
             String valiosa = "'],'startDate':'" + aika;

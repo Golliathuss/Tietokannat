@@ -14,11 +14,14 @@ namespace HarkkatyöTietokannat
     {
         public static string[] parseri(string data)
         {
+            // Katsotaan montako varausta löytyi
             String testi = "subject";
             int count = (data.Length - data.Replace(testi, "").Length) / testi.Length;
             
+            // Jokaisesta varauksesta 3 tietoa talteen
             string[] varaus;
             varaus = new string[count*3];
+
             int k = 0;
             JObject o = JObject.Parse(data);
 

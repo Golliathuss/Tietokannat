@@ -22,6 +22,7 @@ namespace HarkkatyöTietokannat
         {
             InitializeComponent();
 
+            // asetetaan kalenteri näyttämään aina maanantai ensimmäisenä niin että kalenterissä näkyy vain yksi viikko kerrallaan
             DateTime input = DateTime.Now;
             int delta = DayOfWeek.Monday - input.DayOfWeek;
             dayView1.StartDate = input.AddDays(delta);
@@ -29,17 +30,18 @@ namespace HarkkatyöTietokannat
             String[] varaus;
             varaus = new String[6];
 
+            // tehdään haku
             String data = haku.etsi(ryhma);
+
+            // tarkistetaan varausten maara
             String testi = "subject";
             int count = (data.Length - data.Replace(testi, "").Length) / testi.Length;
 
+            // viedään saatu data parserille eroteltavaksi
             varaus = Parser.parseri(data);
-            // vertailu(varaus);
 
 
-
-
-
+            // Asetetaan varaukset kalenteriin oikeille kohdilleen
             m_Appointments = new List<Appointment>();
             for (int i = 0; i < count; i++)
             {
@@ -53,10 +55,8 @@ namespace HarkkatyöTietokannat
                 Appointment m_Appointment = new Appointment();
                 m_Appointment.StartDate = alku1;
                 m_Appointment.EndDate = alku2;
-
                 m_Appointment.Title = title;
                 m_Appointment.Color = System.Drawing.Color.Red;
-
                 m_Appointments.Add(m_Appointment);
             }
             dayView1.Invalidate();
@@ -73,11 +73,13 @@ namespace HarkkatyöTietokannat
             args.Appointments = m_Apps;
         }
 
+        // Kalenterin viikko eteenpäin
         private void button1_Click(object sender, EventArgs e)
         {
             dayView1.StartDate = dayView1.StartDate.AddDays(7);
         }
 
+        // Kalenterin viikko taaksepäin
         private void button2_Click(object sender, EventArgs e)
         {
             dayView1.StartDate = dayView1.StartDate.AddDays(-7);
@@ -88,23 +90,5 @@ namespace HarkkatyöTietokannat
         {
             Close();
         }
-        
-
-        /*
-        private int vertailu(String[] varaus)
-        {
-            DateTime alku1 = DateTime.ParseExact(varaus[vertaus], "'Startdate: 'yyyy-MM-dd'T'HH:mm", null);
-
-            vertaus = vertaus + 3;
-            DateTime alku2 = DateTime.ParseExact(varaus[vertaus], "'Startdate: 'yyyy-MM-dd'T'HH:mm", null);
-            int result = alku1.Date.CompareTo(alku2.Date);
-            vertaus = vertaus + 3;
-            return result;
-
-            // alle nolla -> alku1 on aikaisemmin
-            // nolla -> sama
-        }
-          */
-
     }
 }

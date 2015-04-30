@@ -29,6 +29,7 @@ namespace HarkkatyöTietokannat
 
         }
 
+        // avaa kalenterin
         private void button1_Click(object sender, EventArgs e)
         {
 

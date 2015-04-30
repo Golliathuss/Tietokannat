@@ -1,4 +1,9 @@
-﻿using System;
+﻿// Mikko Kukkola
+// Petri Pokela
+// 12I224
+// Tamk, Ohjelmistotekniikka
+
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
